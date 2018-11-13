@@ -1,0 +1,16 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-util",
+            "type": "shell",
+            "command": "python setup.py build_ext --inplace && del \"./sa_module.pyd\" && rename sa_module.cp36-win_amd64.pyd sa_module.pyd && python test.py",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
