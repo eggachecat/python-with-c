@@ -90,8 +90,10 @@ static struct PyModuleDef sa_module_definition = {
 
 PyMODINIT_FUNC PyInit_sa_module(void)
 {
-    import_array();# very important!!!
-    Py_Initialize();
 
+    Py_Initialize();
+    /* https://docs.scipy.org/doc/numpy-1.15.1/user/c-info.how-to-extend.html#required-subroutine */
+    import_array(); # very important!!!
+        
     return PyModule_Create(&sa_module_definition);
 }
