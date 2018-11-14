@@ -1,5 +1,6 @@
 #include <Python.h>
 #include <stdio.h>
+#include <numpy/arrayobject.h>
 
 int sa_add(int a, int b)
 {
@@ -89,6 +90,7 @@ static struct PyModuleDef sa_module_definition = {
 
 PyMODINIT_FUNC PyInit_sa_module(void)
 {
+    import_array();# very important!!!
     Py_Initialize();
 
     return PyModule_Create(&sa_module_definition);
